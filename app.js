@@ -1,11 +1,15 @@
 const express = require('express');
+const authRoutes = require('./routes/auth-routes');
 
 const app = express();
 
-//set up view engine
+//Set up view engine
 app.set('view engine','ejs');
 
-//create home router
+//Set up auth routes with Auth
+app.use('/auth',authRoutes);
+
+//Default Route to home
 app.get('/',(req,res)=>{
     res.render('home');
 });
